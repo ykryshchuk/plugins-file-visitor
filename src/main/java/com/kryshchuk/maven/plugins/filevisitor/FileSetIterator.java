@@ -21,12 +21,12 @@ public class FileSetIterator extends AbstractFileIterator {
   }
 
   @Override
-  public void iterate(final FileVisitor visitor) throws FilesIterationException {
+  public void iterate(final FileVisitor visitor) throws VisitorException {
     iterate(fileset.getDirectory(), new FileLister(fileset), visitor);
   }
 
   private void iterate(final File dir, final FileLister fileLister, final FileVisitor visitor)
-      throws FilesIterationException {
+      throws VisitorException {
     final File[] list = dir.listFiles(fileLister);
     for (final File file : list) {
       if (file.isDirectory()) {

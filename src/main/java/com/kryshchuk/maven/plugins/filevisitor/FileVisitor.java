@@ -13,6 +13,6 @@ import java.io.File;
  */
 public interface FileVisitor {
 
-  void visit(File inputFile, File outputFile) throws FilesIterationException;
+  void visit(File inputFile, File outputFile) throws VisitorException;
 
 }

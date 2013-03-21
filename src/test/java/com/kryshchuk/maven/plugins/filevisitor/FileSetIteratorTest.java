@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 public class FileSetIteratorTest {
 
   @Test
-  public void runScenarioOther() throws IOException, FilesIterationException {
+  public void runScenarioOther() throws IOException, VisitorException {
     // setup dir
     final File dir = File.createTempFile("jfcmp-", "-test");
     Assert.assertTrue(dir.delete());
@@ -47,7 +47,7 @@ public class FileSetIteratorTest {
   }
 
   @Test
-  public void runScenarioWithRoot() throws IOException, FilesIterationException {
+  public void runScenarioWithRoot() throws IOException, VisitorException {
     // setup dir
     final File dir = File.createTempFile("jfcmp-", "-test");
     Assert.assertTrue(dir.delete());

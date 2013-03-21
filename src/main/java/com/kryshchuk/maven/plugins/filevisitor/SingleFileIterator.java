@@ -21,7 +21,7 @@ public class SingleFileIterator extends AbstractFileIterator {
   }
 
   @Override
-  public void iterate(final FileVisitor visitor) throws FilesIterationException {
+  public void iterate(final FileVisitor visitor) throws VisitorException {
     final File outputFile = getFileMapper().getMappedFile(file);
     visitor.visit(file, outputFile);
   }

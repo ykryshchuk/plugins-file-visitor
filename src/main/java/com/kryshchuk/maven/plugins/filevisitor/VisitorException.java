@@ -9,18 +9,18 @@ package com.kryshchuk.maven.plugins.filevisitor;
  * @author yura
  * @since 1.0
  */
-public class FilesIterationException extends Exception {
+public class VisitorException extends Exception {
 
   /**
    * 
    */
   private static final long serialVersionUID = 1L;
 
-  public FilesIterationException(final String message) {
+  public VisitorException(final String message) {
     super(message);
   }
 
-  public FilesIterationException(final String message, final Throwable cause) {
+  public VisitorException(final String message, final Throwable cause) {
     super(message, cause);
   }
 
