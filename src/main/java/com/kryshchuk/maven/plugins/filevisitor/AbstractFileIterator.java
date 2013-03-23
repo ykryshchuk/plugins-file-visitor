@@ -17,7 +17,7 @@ public abstract class AbstractFileIterator {
     this.fileMapper = fileMapper;
   }
 
-  abstract void iterate(FileVisitor visitor) throws VisitorException;
+  public abstract void iterate(FileVisitor visitor) throws VisitorException;
 
   protected FileMapper getFileMapper() {
     return fileMapper;
