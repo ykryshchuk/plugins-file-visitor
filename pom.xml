@@ -10,7 +10,7 @@
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
   <artifactId>file-visitor</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
 
   <name>File iteration library for plugins.</name>
 
