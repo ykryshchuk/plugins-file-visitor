@@ -1,5 +1,5 @@
 /*
- * File iteration library for plugins.
+ * File iteration helper library for Maven Plugins.
  * Copyright (C) 2013  Yuriy Kryshchuk
  * 
  * This program is free software: you can redistribute it and/or modify
