@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.kryshchuk</groupId>
     <artifactId>parent</artifactId>
-    <version>1.1.3</version>
+    <version>1.2</version>
   </parent>
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
@@ -26,6 +26,42 @@
     <url>git@github.com:ykryshchuk/plugins-file-visitor.git</url>
     <tag>HEAD</tag>
   </scm>
+  
+  <build>
+    
+    <pluginManagement>
+      
+      <plugins>
+        
+        <plugin>
+          <groupId>com.kryshchuk.maven.plugins</groupId>
+          <artifactId>fixsource-maven-plugin</artifactId>
+          <configuration>
+            <header><![CDATA[
+              File iteration support for maven plugins.
+              Copyright (C) 2013  Yuriy Kryshchuk
+              
+              This program is free software: you can redistribute it and/or modify
+              it under the terms of the GNU General Public License as published by
+              the Free Software Foundation, either version 3 of the License, or
+              (at your option) any later version.
+              
+              This program is distributed in the hope that it will be useful,
+              but WITHOUT ANY WARRANTY; without even the implied warranty of
+              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+              GNU General Public License for more details.
+              
+              You should have received a copy of the GNU General Public License
+              along with this program.  If not, see <http://www.gnu.org/licenses/>.              
+            ]]></header>
+          </configuration>    
+        </plugin>
+        
+      </plugins>
+      
+    </pluginManagement>
+    
+  </build>
   
   <dependencyManagement>
     
