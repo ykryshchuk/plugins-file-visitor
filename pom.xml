@@ -38,7 +38,7 @@
           <artifactId>fixsource-maven-plugin</artifactId>
           <configuration>
             <header><![CDATA[
-              File iteration support for maven plugins.
+              ${project.name}
               Copyright (C) 2013  Yuriy Kryshchuk
               
               This program is free software: you can redistribute it and/or modify
