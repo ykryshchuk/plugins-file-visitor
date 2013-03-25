@@ -52,7 +52,7 @@
               GNU General Public License for more details.
               
               You should have received a copy of the GNU General Public License
-              along with this program.  If not, see <http://www.gnu.org/licenses />.              
+              along with this program.  If not, see <http://www.gnu.org/licenses/>.              
             ]]></header>
           </configuration>    
         </plugin>
@@ -62,6 +62,35 @@
     </pluginManagement>
     
   </build>
+  
+  <profiles>
+    
+    <profile>
+      <id>FixSource</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-scm-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>commit-fixed-sources</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>checkin</goal>
+                </goals>
+                <configuration>
+                  <message>Fixed sources before release ${project.version}</message>
+                  <includes>**/src/**</includes>
+                  <excludes>**/pom.xml,**/target/**</excludes>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
+  </profiles>
   
   <dependencyManagement>
     
