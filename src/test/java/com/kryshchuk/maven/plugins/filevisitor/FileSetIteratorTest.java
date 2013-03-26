@@ -32,6 +32,15 @@ import org.testng.annotations.Test;
 public class FileSetIteratorTest {
 
   @Test
+  public void iterateMissingDirectory() throws VisitorException {
+    final FileSet fileset = new FileSet();
+    fileset.setDirectory(new File("unexisting-dir"));
+    final FileSetIterator iterator = new FileSetIterator(fileset, new DummyFileMapper());
+    final FileVisitor visitor = Mockito.mock(FileVisitor.class);
+    iterator.iterate(visitor);
+  }
+
+  @Test
   public void runScenarioOther() throws IOException, VisitorException {
     // setup dir
     final File dir = File.createTempFile("jfcmp-", "-test");

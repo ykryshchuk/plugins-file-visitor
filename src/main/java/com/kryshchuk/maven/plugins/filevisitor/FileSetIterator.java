@@ -19,6 +19,9 @@ package com.kryshchuk.maven.plugins.filevisitor;
 
 import java.io.File;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * FileSetIterator class.
  * 
@@ -26,6 +29,8 @@ import java.io.File;
  * @since 1.0
  */
 public class FileSetIterator extends AbstractFileIterator {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(FileSetIterator.class);
 
   private final FileSet fileset;
 
@@ -39,17 +44,24 @@ public class FileSetIterator extends AbstractFileIterator {
     iterate(fileset.getDirectory(), new FileLister(fileset), visitor);
   }
 
-  private void iterate(final File dir, final FileLister fileLister, final FileVisitor visitor)
-      throws VisitorException {
-    final File[] list = dir.listFiles(fileLister);
-    for (final File file : list) {
-      if (file.isDirectory()) {
-        final FileLister nestedFileLister = fileLister.getFileLister(file);
-        iterate(file, nestedFileLister, visitor);
+  private void iterate(final File dir, final FileLister fileLister, final FileVisitor visitor) throws VisitorException {
+    if (dir.isDirectory()) {
+      final File[] list = dir.listFiles(fileLister);
+      if (list == null) {
+        LOGGER.warn("Failed to iterate directory {}", dir);
       } else {
-        final File outputFile = getFileMapper().getMappedFile(file);
-        visitor.visit(file, outputFile);
+        for (final File file : list) {
+          if (file.isDirectory()) {
+            final FileLister nestedFileLister = fileLister.getFileLister(file);
+            iterate(file, nestedFileLister, visitor);
+          } else {
+            final File outputFile = getFileMapper().getMappedFile(file);
+            visitor.visit(file, outputFile);
+          }
+        }
       }
+    } else {
+      LOGGER.warn("Fileset source {} is not an existing directory", dir);
     }
   }
 
